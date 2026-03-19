@@ -4,7 +4,7 @@ resource "google_compute_instance" "vm" {
   machine_type = var.machine_type
   zone         = var.zone
 
-  tags = ["leo-ssh", "leo-${each.key}"]
+  tags = ["leo-ssh", "leo-web-ip"]
 
   boot_disk {
     initialize_params {
@@ -19,7 +19,7 @@ resource "google_compute_instance" "vm" {
   network_interface {
     subnetwork = google_compute_subnetwork.subnet.id
     access_config {
-      nat_ip = google_compute_address.public_ip[each.key].address
+        nat_ip = google_compute_address.public_ip.address
     }
-  }
+}
 }
