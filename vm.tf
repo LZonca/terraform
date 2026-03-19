@@ -3,8 +3,7 @@ resource "google_compute_address" "public_ip" {
   region = var.region
 }
 resource "google_compute_instance" "vm" {
-  for_each     = "${var.web_port}"
-  name         = "leo-${each.key}"
+  name         = "leo-web-vm"
   machine_type = var.machine_type
   zone         = var.zone
 
