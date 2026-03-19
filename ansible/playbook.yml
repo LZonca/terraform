@@ -1,0 +1,20 @@
+---
+- name: Deploiement de NGINX
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: 1) mettre à jour le cache apt
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: 2) installer nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: 3) démarrer le service + activer au boot
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
