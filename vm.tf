@@ -7,7 +7,7 @@ resource "google_compute_instance" "vm" {
   machine_type = var.machine_type
   zone         = var.zone
 
-  tags = ["leo-ssh", "leo-web-ip"]
+  tags = ["leo-ssh", "leo-web"]
 
   boot_disk {
     initialize_params {

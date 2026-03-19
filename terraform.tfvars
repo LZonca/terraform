@@ -3,4 +3,4 @@ region       = "europe-west4"
 zone         = "europe-west4-a"
 ssh_user     = "ansible"
 machine_type = "e2-micro"
-web_port     = 80
+web_port     = 80   
